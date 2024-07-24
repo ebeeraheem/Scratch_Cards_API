@@ -44,7 +44,7 @@ public class ScratchCardsService : IScratchCardsService
     {
         var card = await _context.ScratchCards.FindAsync(id);
 
-        if (card is null)
+        if (card is null || card.IsPurchased || card.IsUsed)
         {
             return null;
         }
@@ -60,7 +60,7 @@ public class ScratchCardsService : IScratchCardsService
     {
         var card = await _context.ScratchCards.FindAsync(id);
 
-        if (card is null)
+        if (card is null || card.IsUsed || card.IsPurchased is false)
         {
             return null;
         }
