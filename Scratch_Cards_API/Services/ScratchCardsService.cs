@@ -4,7 +4,7 @@ using Scratch_Cards_API.Models;
 
 namespace Scratch_Cards_API.Services;
 
-public class ScratchCardsService
+public class ScratchCardsService : IScratchCardsService
 {
     private readonly ApplicationDbContext _context;
 

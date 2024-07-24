@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Scratch_Cards_API.Data;
+using Scratch_Cards_API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IScratchCardsService, ScratchCardsService>();
 
 var app = builder.Build();
 
